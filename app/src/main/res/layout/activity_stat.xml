@@ -11,4 +11,32 @@
     android:id="@+id/sum"
     />
 
+    <TextView
+        android:id="@+id/gameCount"
+        android:layout_width="142dp"
+        android:layout_height="54dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="269dp"
+        android:layout_marginRight="269dp"
+        android:text="@string/gamescount" />
+
+    <TextView
+        android:id="@+id/maxNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gameCount"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="171dp"
+        android:layout_marginLeft="171dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginRight="163dp"
+        android:layout_marginBottom="-77dp"
+        android:text="@string/maxnumber" />
+
 </RelativeLayout>

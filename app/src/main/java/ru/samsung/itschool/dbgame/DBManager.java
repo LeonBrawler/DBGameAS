@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 
 public class DBManager {
@@ -35,15 +36,30 @@ public class DBManager {
 		db.execSQL("INSERT INTO RESULTS VALUES ('" + username + "', " + score
 				+ ");");
 	}
-	// Player One 150
+	// User1 150 User' , 150);DROP TABLE RESULTS; --
 	// Запрос
 	// INSERT INTO RESULTS VALUES('Player One', 150);
 
 
+	public int gamesCount(){
+		int cnt = 0;
+		cnt = (int) DatabaseUtils.queryNumEntries(db, "RESULTS");
+		//Cursor cursor = db.rawQuery("SELECT COUNT (*) FROM RESULTS;", null);   // ORDER BY score DESC
+		//cursor.moveToFirst();
+		//return cursor.getInt(0);
+		return cnt;
+	}
+
+	public int maxNumber(){
+		int maxN = 0;
+		Cursor cursor = db.rawQuery("SELECT MAX (score) FROM RESULTS;", null);   // ORDER BY score DESC
+		cursor.moveToFirst();
+		return cursor.getInt(0);
+	}
 
 	ArrayList<Result> getAllResults() {
 		ArrayList<Result> data = new ArrayList<Result>();
-		Cursor cursor = db.rawQuery("SELECT * FROM RESULTS;", null);
+		Cursor cursor = db.rawQuery("SELECT * FROM RESULTS ORDER BY username;", null);   // ORDER BY score DESC
 		boolean hasMoreData = cursor.moveToFirst();
 
 		while (hasMoreData) {
@@ -62,3 +78,6 @@ public class DBManager {
 	}
 
 }
+
+	// user1 150
+	// INSERT INTO RESULTS VALUES('user1', 150);

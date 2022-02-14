@@ -9,3 +9,4 @@ public class Result {
         	this.score = score;
         }
 }
+
