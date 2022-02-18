@@ -57,9 +57,14 @@ public class DBManager {
 		return cursor.getInt(0);
 	}
 
+	public void cleanDataBase(){
+		db.delete("RESULTS", null, null);
+		//createTablesIfNeedBe();
+	}
+
 	ArrayList<Result> getAllResults() {
 		ArrayList<Result> data = new ArrayList<Result>();
-		Cursor cursor = db.rawQuery("SELECT * FROM RESULTS ORDER BY username;", null);   // ORDER BY score DESC
+		Cursor cursor = db.rawQuery("SELECT * FROM RESULTS ORDER BY score DESC;", null);   // ORDER BY score DESC
 		boolean hasMoreData = cursor.moveToFirst();
 
 		while (hasMoreData) {

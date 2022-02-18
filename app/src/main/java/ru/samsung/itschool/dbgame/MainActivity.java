@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
 	static DBManager dbManager;
 
@@ -23,11 +24,14 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
 		dbManager = DBManager.getInstance(this);
+		Button cleanBtn = findViewById(R.id.clean);
+		cleanBtn.setOnClickListener(this);
 		Animation anim = AnimationUtils.loadAnimation(this, R.anim.fadin);
 		gameResult = (TextView) this.findViewById(R.id.GameResult);
 		playButton = (ImageButton) this.findViewById(R.id.playButton);
 		playerName = (EditText) this.findViewById(R.id.playerName);
 	}
+
 
 	public void stat(View v){
 	     Intent intent = new Intent(this, StatActivity.class);
@@ -65,5 +69,10 @@ public class MainActivity extends Activity {
 
 	public void showHoF(View v) {
 		startActivity(new Intent(this, HoFActivity.class));
+	}
+
+	@Override
+	public void onClick(View v) {
+		dbManager.cleanDataBase();
 	}
 }

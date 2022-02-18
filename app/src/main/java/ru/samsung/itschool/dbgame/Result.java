@@ -8,5 +8,11 @@ public class Result {
         	this.name = name;
         	this.score = score;
         }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", score=" + score;
+    }
 }
 
