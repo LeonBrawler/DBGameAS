@@ -16,9 +16,12 @@
 
     <TextView
         android:id="@+id/text2"
-        android:layout_width="186dp"
-        android:layout_height="19dp"
+        android:layout_width="87dp"
+        android:layout_height="23dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="right"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
